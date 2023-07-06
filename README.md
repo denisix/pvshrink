@@ -12,7 +12,7 @@ pvshrink /dev/path_to_pv
 
 or:
 ```sh
-curl -s https://raw.githubusercontent.com/denisix/pvshrink/master/pvshrink | python3 /dev/path_to_pv
+python3 <(curl -s https://raw.githubusercontent.com/denisix/pvshrink/master/pvshrink) /dev/path_to_pv
 ```
 
 ## Original author of this tool
