@@ -6,9 +6,17 @@ size.
 
 ## Usage
 
+```sh
+pvshrink /dev/path_to_pv
 ```
-   pvshrink /path/to/pv
-```  
+
+or:
+```sh
+curl -s https://raw.githubusercontent.com/denisix/pvshrink/master/pvshrink | python3 /dev/path_to_pv
+```
+
+## Original author of this tool
+https://github.com/mythic-beasts/pvshrink
 
 ## Background 
 
