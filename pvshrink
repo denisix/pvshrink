@@ -52,7 +52,7 @@ while True:
     except subprocess.CalledProcessError as exc:
         die("Error calling pvs (%d)" % exc.returncode)
 
-    for seg in pvs.split("\n"):
+    for seg in pvs.decode('utf-8').split("\n"):
         if seg.strip() == "":
             continue
         (lv, start, size) = seg.strip().split(',')
@@ -115,7 +115,7 @@ while True:
 
 pvck = subprocess.check_output(['pvck', device])
 
-match = re.search(r'Found text metadata area: offset=(\d+), size=(\d+)', pvck)
+match = re.search(r'Found text metadata area: offset=(\d+), size=(\d+)', pvck.decode('utf-8'))
 if match is None:
     print("Could not parse pvck output:\n %s" % pvck)
     sys.exit(1)
@@ -125,7 +125,7 @@ print("Metadata size: %d b" % metadata_size)
 
 pvdisplay = subprocess.check_output(['pvdisplay','--units','b', device])
 
-match = re.search(r'PE Size\s*(\d+)', pvdisplay)
+match = re.search(r'PE Size\s*(\d+)', pvdisplay.decode('utf-8'))
 if match is None:
     print("Could not parse pvdisplay output:\n %s" % pvdisplay)
     sys.exit(1)
